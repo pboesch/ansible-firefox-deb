@@ -40,7 +40,7 @@ Comment[nb]=Surf på nettet
 Comment[nl]=Verken het internet
 Comment[nn]=Surf på nettet
 Comment[no]=Surf på nettet
-Comment[pl]=Przeglądanie stron WWW 
+Comment[pl]=Przeglądanie stron WWW
 Comment[pt]=Navegue na Internet
 Comment[pt_BR]=Navegue na Internet
 Comment[ru]=Обозреватель Всемирной Паутины
@@ -97,7 +97,7 @@ Exec=env GTK_THEME=Adwaita /opt/firefox/firefox %u
 Terminal=false
 X-MultipleArgs=false
 Type=Application
-Icon=/opt/firefox/browser/chrome/icons/default/default48.png
+Icon=/opt/firefox/browser/chrome/icons/default/default128.png
 Categories=Network;WebBrowser;
 MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
 StartupWMClass=Firefox

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Thunderbird
-Comment=Read/Write Mail/News with Thunderbird
+Comment=Read/Write Mail/News with Thunderbird Beta
 GenericName=Mail Client
 Exec=/opt/thunderbird/thunderbird %u
 Terminal=false

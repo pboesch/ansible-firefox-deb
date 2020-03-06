@@ -3,32 +3,38 @@
 - name: Install latest stable Firefox and latest beta Thunderbird
   hosts: localhost
   become: True
+  vars:
+    mozilla_lang: fr
 
   tasks:
     - name: check if firefox is already installed
       stat:
         path: "/opt/firefox"
       register: f
-    
+
     - name: check if thunderbird is already installed
       stat:
         path: "/opt/thunderbird"
       register: t
-    
+
     - name: download and extract latest firefox
       unarchive:
-        src: "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=fr"
+        src: "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang={{ mozilla_lang }}"
         dest: /opt
         remote_src: yes
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
       when: not f.stat.exists
-    
+
     - name: download and extract latest beta thunderbird
       unarchive:
-        src: "https://download.mozilla.org/?product=thunderbird-beta-latest&os=linux64&lang=fr"
+        src: "https://download.mozilla.org/?product=thunderbird-beta-latest&os=linux64&lang={{ mozilla_lang }}"
         dest: /opt
         remote_src: yes
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
       when: not t.stat.exists
-    
+
     - name: copy application desktop entry (gnome-like)
       copy:
         src: "../files/{{ item }}.desktop"
