@@ -14,4 +14,8 @@ ansible-playbook playbooks/mozilla-latest.yml -K
 
 After that, when a new release is out, Firefox and Thunderbid will be updated automatically.
 
-Warning: playbook will download FR release (?lang=fr) by default, you can override it with extra-var `mozilla_lang`
+## Select your language
+Playbook will download FR release (?lang=fr) by default, you can override it with extra-var `mozilla_lang`
+
+# More details (fr)
+<https://www.pboesch.fr/2019/03/debian-installer-la-derniere-version-de-firefox/>

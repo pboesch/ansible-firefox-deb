@@ -22,8 +22,6 @@
         src: "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang={{ mozilla_lang }}"
         dest: /opt
         remote_src: yes
-        owner: "{{ ansible_user }}"
-        group: "{{ ansible_user }}"
       when: not f.stat.exists
 
     - name: download and extract latest beta thunderbird
@@ -31,9 +29,18 @@
         src: "https://download.mozilla.org/?product=thunderbird-beta-latest&os=linux64&lang={{ mozilla_lang }}"
         dest: /opt
         remote_src: yes
+      when: not t.stat.exists
+
+    - name: ensure directories are owned by current user (upgrade needs it)
+      file:
+        path: "/opt/{{ item }}"
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
-      when: not t.stat.exists
+        state: directory
+        recurse: yes
+      with_items:
+        - firefox
+        - thunderbird
 
     - name: copy application desktop entry (gnome-like)
       copy:
